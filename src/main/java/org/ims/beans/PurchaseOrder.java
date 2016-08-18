@@ -3,20 +3,27 @@ package org.ims.beans;
 import java.util.Date;
 import java.util.Set;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class PurchaseOrder {
-
+	@NotNull(message="Order Number is required")
+	@Min(value=0,message="Invalid Price")
 	private int orderNum;
-
+	@NotNull(message="Subtotal is required")
+	@Min(value=0,message="Invalid Price")
 	private double subtotal;
-
+	@NotNull(message="Date is required")
 	private Date purchaseDate;
-
+	@NotNull(message="Tax is required")
+	@Min(value=0,message="Invalid Price")
 	private double taxAmount;
-
+	@NotNull(message="Total is required")
+	@Min(value=0,message="Invalid Price")
 	private double poTotal;
 
-	//private Client client;
-
+	private Client client;
+	
 	private Set<POLine> orderLines;
 
 	public int getOrderNum() {
@@ -49,12 +56,12 @@ public class PurchaseOrder {
 	public void setPoTotal(double poTotal) {
 		this.poTotal = poTotal;
 	}
-//	public Client getClient() {
-//		return client;
-//	}
-//	public void setClient(Client client) {
-//		this.client = client;
-//	}
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
+	}
 	public PurchaseOrder() {
 		super();
 	}
@@ -65,14 +72,14 @@ public class PurchaseOrder {
 		this.orderLines = orderLines;
 	}
 	public PurchaseOrder(int orderNum, double subtotal, Date purchaseDate, double taxAmount, double poTotal,
-			/* Client client,*/Set<POLine> orderLines) {
+			 Client client,Set<POLine> orderLines) {
 		super();
 		this.orderNum = orderNum;
 		this.subtotal = subtotal;
 		this.purchaseDate = purchaseDate;
 		this.taxAmount = taxAmount;
 		this.poTotal = poTotal;
-		//this.client = client;
+		this.client = client;
 		this.orderLines = orderLines;
 	}
 }

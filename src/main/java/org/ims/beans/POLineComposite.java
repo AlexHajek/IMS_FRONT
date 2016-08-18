@@ -1,10 +1,13 @@
 package org.ims.beans;
 
-import java.io.Serializable;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 public class POLineComposite{
-	
+	@NotNull(message="Order Number is required")
 	private PurchaseOrder orderNumber;
+	@NotNull(message="Line Number is required")
+	@Min(value=0,message="Invalid Line")
 	private int lineNumber;
 	public PurchaseOrder getOrderNumber() {
 		return orderNumber;
