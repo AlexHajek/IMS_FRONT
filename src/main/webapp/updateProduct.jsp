@@ -7,17 +7,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Update Client List</title>
 </head>
 <body>
 <form:form action="register.do" method="post" commandName="pickle">
 			<!-- path=bean property -->
-	Name: <form:input path="name" /> 
-		<form:errors path="name" cssClass="error" /><br/>
-	Age: <form:input path="age" /> 
-		<form:errors path="age" cssClass="error" /><br/>
-	Email: <form:input path="email" /> 
-		<form:errors path="email" cssClass="error" /><br/>
+	Product UPC: <form:input path="productUPC" /> 
+		<form:errors path="productUPC" cssClass="error" /><br/>
+	Product Name: <form:input path="productName" /> 
+		<form:errors path="productName" cssClass="error" /><br/>
+	Product Description: <form:input path="productDescription" /> 
+		<form:errors path="productDescription" cssClass="error" /><br/>
+	Short Name: <form:input path="shortName" /> 
+		<form:errors path="shortName" cssClass="error" /><br/>
+	Unit Cost: <form:input path="unitCost" /> 
+		<form:errors path="unitCost" cssClass="error" /><br/>
+	Pack Size: <form:input path="packSize" /> 
+		<form:errors path="packSize" cssClass="error" /><br/>
+	Reorder Quantity: <form:input path="reorderQuantity" /> 
+		<form:errors path="reorderQuantity" cssClass="error" /><br/>
+	Retail Price: <form:input path="retailPrice" /> 
+		<form:errors path="retailPrice" cssClass="error" /><br/>
+	Product Weight: <form:input path="productWeight" /> 
+		<form:errors path="productWeight" cssClass="error" /><br/>
+	ProductImage: <form:input path="productImage" /> 
+		<form:errors path="productImage" cssClass="error" /><br/>
 	<input type="submit" value="Register" />
 </form:form>
 </body>

@@ -12,6 +12,15 @@
 
 </head>
 <body>
-
+<form:form action="register.do" method="post" commandName="pickle">
+			<!-- path=bean property -->
+	Name: <form:input path="name" /> 
+		<form:errors path="name" cssClass="error" /><br/>
+	Age: <form:input path="age" /> 
+		<form:errors path="age" cssClass="error" /><br/>
+	Email: <form:input path="email" /> 
+		<form:errors path="email" cssClass="error" /><br/>
+	<input type="submit" value="Register" />
+</form:form>
 </body>
 </html>

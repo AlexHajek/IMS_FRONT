@@ -76,7 +76,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>spring-mvc</finalName>
+		<finalName>IMS_Front</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
