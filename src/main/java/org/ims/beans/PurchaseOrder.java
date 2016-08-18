@@ -3,20 +3,31 @@ package org.ims.beans;
 import java.util.Date;
 import java.util.Set;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class PurchaseOrder {
-
+	@NotNull(message="Order Number is required")
+	@Min(value=0,message="Invalid Price")
 	private int orderNum;
-
+	@NotNull(message="Subtotal is required")
+	@Min(value=0,message="Invalid Price")
 	private double subtotal;
-
+	@NotNull(message="Date is required")
 	private Date purchaseDate;
-
+	@NotNull(message="Tax is required")
+	@Min(value=0,message="Invalid Price")
 	private double taxAmount;
-
+	@NotNull(message="Total is required")
+	@Min(value=0,message="Invalid Price")
 	private double poTotal;
 
 	private Client client;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> master
 	private Set<POLine> orderLines;
 
 	public int getOrderNum() {

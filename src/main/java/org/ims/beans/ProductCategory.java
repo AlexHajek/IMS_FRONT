@@ -2,13 +2,19 @@ package org.ims.beans;
 
 import java.util.Set;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class ProductCategory {
 
-
+	@NotNull(message="Id is required")
+	@Min(value=0,message="Invalid ID")
 	private int categoryId;
-
+	@NotNull(message="Description is required")
+	@Size(max=50,message="Too Long")
 	private String categoryDescription;
-	
+	@NotNull(message="Products are required")
 	private Set<Product> productsForCategory; 
 	
 	public int getCategoryId() {
