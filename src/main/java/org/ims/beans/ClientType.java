@@ -2,10 +2,19 @@ package org.ims.beans;
 
 import java.util.Set;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class ClientType {
 	
+	@NotNull(message = "clientTypeId is required.")
+	@Min(value=0,message="invalid clientTypeId")
 	private int clientTypeId;
+	@NotNull(message = "clientType is required.")
+	@Size(min=0,max=25,message="invalid clientType")
 	private String clientType;
+	@NotNull(message = "clientSet is required.")
 	private Set<Client> ClientSet;
 	
 	public int getClientTypeId() {

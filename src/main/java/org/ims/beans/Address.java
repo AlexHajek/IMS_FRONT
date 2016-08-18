@@ -1,12 +1,29 @@
 package org.ims.beans;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Address {
 	
+	@NotNull(message = "arrvId is required.")
+	@Min(value=0,message="invalid id")
 	private int addressId;
+	@NotNull(message = "streetAddress1 is required.")
+	@Size(min=0,max=250,message="invalid address size")
 	private String streetAddress1;
+	@NotNull(message = "streetAddress2 is required.")
+	@Size(min=0,max=50,message="invalid address size")
 	private String streetAddress2;
+	@NotNull(message = "addressCity is required.")
+	@Size(min=0,max=35,message="invalid address city")
 	private String addressCity;
+	@NotNull(message = "addressZip is required.")
+	@Digits(integer=10, fraction=0, message="invalid zip")
 	private String addressZip;
+	@NotNull(message = "stateAbbrv is required.")
+	@Size(min=2,max=2,message="invalid state abbrv")
 	private StateAbbrv stateAbbrv;
 	
 	public int getAddressId() {
