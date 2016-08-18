@@ -12,7 +12,7 @@
 
 </head>
 <body>
-<form:form action="register.do" method="post" commandName="pickle">
+<form:form action="register.do" method="post">
 			<!-- path=bean property -->
 	Name: <form:input path="name" /> 
 		<form:errors path="name" cssClass="error" /><br/>

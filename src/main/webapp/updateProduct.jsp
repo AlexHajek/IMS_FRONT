@@ -10,7 +10,7 @@
 <title>Update Client List</title>
 </head>
 <body>
-<form:form action="register.do" method="post" commandName="pickle">
+<form:form action="register.do" method="post">
 			<!-- path=bean property -->
 	Product UPC: <form:input path="productUPC" /> 
 		<form:errors path="productUPC" cssClass="error" /><br/>
