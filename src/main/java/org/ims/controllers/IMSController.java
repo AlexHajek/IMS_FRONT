@@ -1,5 +1,8 @@
 package org.ims.controllers;
 
+import java.util.List;
+import java.util.Vector;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.ServletContextAware;
+
+import org.ims.beans.Person;
 
 @Controller
 public class IMSController implements ServletContextAware,
@@ -24,7 +29,8 @@ public class IMSController implements ServletContextAware,
 	
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		// TODO Auto-generated method stub
+		List<Person> peeps = new Vector<>();
+		servletContext.setAttribute("people", peeps); //app scope
 	}
 	@Override
 	public void setServletContext(ServletContext ctxt) {
