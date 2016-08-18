@@ -23,11 +23,7 @@ public class PurchaseOrder {
 	private double poTotal;
 
 	private Client client;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> master
 	private Set<POLine> orderLines;
 
 	public int getOrderNum() {
