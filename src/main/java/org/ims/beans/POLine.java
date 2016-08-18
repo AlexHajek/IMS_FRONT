@@ -1,15 +1,20 @@
 package org.ims.beans;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class POLine {
-
+	@NotNull(message="Composite Key is required")
 	private POLineComposite compositeKey;
-
+	@NotNull(message="Price is required")
+	@Min(value=0,message="Invalid Price")
 	private double unitPrice;
-
+	@NotNull(message="Quantity is required")
+	@Min(value=0,message="Invalid Quantity")
 	private int quantityOrdered;
-	
+	@NotNull(message="Product is required")
 	private Product product;
-
+	@NotNull(message="Order is required")
 	private PurchaseOrder order;
 	
 	public POLineComposite getCompositeKey() {
