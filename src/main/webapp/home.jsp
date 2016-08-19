@@ -21,10 +21,11 @@
 			</ul>
    </div>
    <div class="pagebody">
-		<div class="pagecenter">
+   	<div class="pagecenter">
 			<h2>Hello World 1!</h2>
 			<a href="updateClientList.do">Client Update</a><br/>
 			<a href="updateProduct.do">Product Update</a><br/>
+			<br/>
 		</div>
    </div>
 	</div>
