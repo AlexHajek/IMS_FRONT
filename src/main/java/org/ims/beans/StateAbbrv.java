@@ -18,7 +18,7 @@ public class StateAbbrv {
 	@NotNull(message = "stateAbbrv is required")
 	@Size(min=2,max=2,message="stateAbbrv not of size 2!")
 	private String stateAbbrv;
-	@NotNull(message="address set is required")
+	//@NotNull(message="address set is required")
 	private Set<Address> stateAddressSet;
 	
 	public int getArrvId() {

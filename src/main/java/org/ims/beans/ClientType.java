@@ -14,7 +14,7 @@ public class ClientType {
 	@NotNull(message = "clientType is required.")
 	@Size(min=0,max=25,message="invalid clientType")
 	private String clientType;
-	@NotNull(message = "clientSet is required.")
+	//@NotNull(message = "clientSet is required.")
 	private Set<Client> ClientSet;
 	
 	public int getClientTypeId() {
