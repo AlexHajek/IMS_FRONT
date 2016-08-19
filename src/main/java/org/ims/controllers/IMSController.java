@@ -45,8 +45,10 @@ public class IMSController implements ServletContextAware,
 			HttpServletRequest req,
 			HttpServletResponse resp){
 		if(bindingResult.hasErrors()){
+			System.out.println("Error");
 			return new ModelAndView("updateProduct");
 		}
+		System.out.println("!Error");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("index");
 		return mv;

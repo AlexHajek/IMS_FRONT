@@ -12,12 +12,12 @@ public class MiddleInterfaceF {
 	public List<StateAbbrv> printStateAbb(){
 		List<StateAbbrv> rList = new ArrayList<>();
 		System.out.println(midI.test());
-//		List<StateAbbrvBean> list = midI.getAllAbbr();
-//		for(StateAbbrvBean s:list){
-//			s.getStateName();
-//			StateAbbrv abbrv = this.castAbbrv(s);
-//			rList.add(abbrv);
-//		}
+		List<StateAbbrvBean> list = midI.getAllAbbr();
+		for(StateAbbrvBean s:list){
+			s.getStateName();
+			StateAbbrv abbrv = this.castAbbrv(s);
+			rList.add(abbrv);
+		}
 		return rList;
 	}
 	
