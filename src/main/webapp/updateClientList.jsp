@@ -31,10 +31,11 @@
 		<form:errors path="phone" cssClass="error" /><br/>
 	Fax Number: <form:input path="fax" /> 
 		<form:errors path="fax" cssClass="error" /><br/>
-	Address: <form:input path="address" />
+	<!-- Address: <form:input path="address" />
 		<form:errors path="address" cssClass="error" /><br/>
 	ClientType: <form:input path="clientType" />
 		<form:errors path="clientType" cssClass="error" /><br/>
+		-->
 	<input type="submit" value="Register" />
 </form:form>
 </body>

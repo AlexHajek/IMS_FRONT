@@ -8,8 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.ims.beans.Client;
-import org.ims.beans.Product;
+import org.hibernate.Session;
+import org.ims.IMS_WEB.IMSDAO;
+import org.ims.IMS_WEB.SessionFactoryManager;
+import org.ims.beans.AddressBean;
+import org.ims.beans.ClientBean;
+import org.ims.beans.ClientTypeBean;
+import org.ims.beans.ProductBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,12 +34,12 @@ public class IMSController implements ServletContextAware,
 
 	@RequestMapping(value="updateProduct.do", method=RequestMethod.GET)
 	public String updateProduct(HttpServletRequest req){
-		req.setAttribute("newProduct", new Product());
+		req.setAttribute("newProduct", new ProductBean());
 		return "updateProduct";
 	}
 	@RequestMapping(value="updateClientList.do", method=RequestMethod.GET)
 	public String updateClientList(HttpServletRequest req){
-		req.setAttribute("myClient", new Client());
+		req.setAttribute("myClient", new ClientBean());
 		return "updateClientList";
 	}
 	@RequestMapping(value="registerProduct.do", method=RequestMethod.POST)
@@ -43,7 +48,7 @@ public class IMSController implements ServletContextAware,
 	}
 	@RequestMapping(value="updateclient.do", method=RequestMethod.POST)
 	public ModelAndView registerClient(
-			@ModelAttribute("myClient") @Valid Client myClient, 
+			@ModelAttribute("myClient") @Valid ClientBean myClient, 
 			BindingResult bindingResult,
 			HttpServletRequest req, 
 			HttpServletResponse resp 
@@ -53,7 +58,7 @@ public class IMSController implements ServletContextAware,
 			return new ModelAndView("updateClientList");
 		}
 		@SuppressWarnings("unchecked")
-		Vector<Client> clientList = (Vector<Client>)this.servletContext.getAttribute("clientList");
+		Vector<ClientBean> clientList = (Vector<ClientBean>)this.servletContext.getAttribute("clientList");
 		/*
 		StateAbbrv clientStateAbbrv = new StateAbbrv(Integer.parseInt(req.getParameter("stateAbbrvId")),
 													req.getParameter("stateName"),
@@ -69,15 +74,25 @@ public class IMSController implements ServletContextAware,
 													req.getParameter("clientType"),
 													null);
 													*/
-		Client newClient = new Client(Integer.parseInt(req.getParameter("id")),
+		System.out.println(req.getParameter("id"));
+		System.out.println(req.getParameter("name"));
+		ClientBean newClient = new ClientBean(Integer.parseInt(req.getParameter("id")),
 										req.getParameter("name"),
 										req.getParameter("email"),
 										req.getParameter("pocn"),
 										req.getParameter("phone"),
 										req.getParameter("fax"),
-										null/*clientAddress,*/,
-										null/*newClientType*/);
+										new AddressBean()/*clientAddress,*/,
+										new ClientTypeBean()/*newClientType*/);
+										
 		clientList.add(newClient);
+		//testing
+		Session session = SessionFactoryManager.getInstance().openSession();
+		IMSDAO myDAO = new IMSDAO(session);
+		myDAO.create(newClient);
+		session.close();
+		
+		req.getSession().setAttribute("clientList", clientList);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("viewClients"); 	//viewClients.jsp
 		mv.addObject("success", "Successfully added client!");	
@@ -86,7 +101,7 @@ public class IMSController implements ServletContextAware,
 	
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		List<Client> clients = new Vector<>();
+		List<ClientBean> clients = new Vector<>();
 		servletContext.setAttribute("clientList", clients);
 	}
 	@Override
