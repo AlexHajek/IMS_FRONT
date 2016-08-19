@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="fulldiv">
-   <div class="navbar">
+   <div class="navbar grad">
 			<ul>
 				<li><a href="home.jsp">Home</a></li>
 			  <li><a href="updateClientList.do">Update Client</a></li>
@@ -25,6 +25,7 @@
 			<h2>Hello World 1!</h2>
 			<a href="updateClientList.do">Client Update</a><br/>
 			<a href="updateProduct.do">Product Update</a><br/>
+			<button class="grad">Test</button>
 			<br/>
 		</div>
    </div>
