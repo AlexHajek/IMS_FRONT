@@ -3,15 +3,15 @@ package org.ims.middle;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.ims.IMS_WEB.MiddleInterface;
+import org.ims.IMS_WEB.DataLayer;
 import org.ims.beans.StateAbbrvBean;
 
 public class MiddleInterfaceF {
-	private MiddleInterface midI = new MiddleInterface();
+	private DataLayer dLayer = new DataLayer();
 	public List<StateAbbrvBean> printStateAbb(){
 		List<StateAbbrvBean> rList = new ArrayList<>();
-		System.out.println(midI.test());
-		List<StateAbbrvBean> list = midI.getAllAbbr();
+		System.out.println(dLayer.test());
+		List<StateAbbrvBean> list = dLayer.getAllAbbr();
 		for(StateAbbrvBean s:list){
 			s.getStateName();
 //			StateAbbrvBean abbrv = this.StateAbbrvBean(s);
