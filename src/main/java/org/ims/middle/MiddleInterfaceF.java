@@ -19,6 +19,11 @@ public class MiddleInterfaceF {
 		}
 		return rList;
 	}
+	@Override
+	protected void finalize() throws Throwable {
+		dLayer.close();
+		super.finalize();
+	}
 	
 	//"Castings"
 //	private StateAbbrv castAbbrv(StateAbbrvBean s){

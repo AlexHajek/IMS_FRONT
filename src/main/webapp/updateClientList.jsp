@@ -7,8 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<<<<<<< HEAD
-<title>Insert title here</title>
+<title>Update Client List</title>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -27,9 +26,9 @@
    <div class="pagebody">
    	<div class="pagecenter">
    		<h2>Create New Client</h2>
-			<form:form action="updateclient.do" method="post" commandName="myclient">
-						<!-- path=bean property -->
-				Id:<br/> <form:input path="id" /> <br/>
+				<form:form action="updateclient.do" method="post" commandName="myClient">
+			<!-- path=bean property -->
+				ClientId:<br/> <form:input path="id" /> <br/>
 					<form:errors path="id" cssClass="error" /><br/>
 				Name:<br/> <form:input path="name" /> <br/>
 					<form:errors path="name" cssClass="error" /><br/>
@@ -41,10 +40,11 @@
 					<form:errors path="phone" cssClass="error" /><br/>
 				Fax Number:<br/> <form:input path="fax" /> <br/>
 					<form:errors path="fax" cssClass="error" /><br/>
-				Address:<br/> <form:input path="address" /> <br/>
+				<!-- Address:<br/> <form:input path="address" /><br/>
 					<form:errors path="address" cssClass="error" /><br/>
-				Client Type:<br/> <form:input path="clientType" /> <br/>
+				ClientType:<br/> <form:input path="clientType" /><br/>
 					<form:errors path="clientType" cssClass="error" /><br/>
+					-->
 				<input type="submit" value="Register" />
 			</form:form>
 			<br/>
@@ -52,37 +52,5 @@
    </div>
 	</div>
 	<div class="cleardiv"></div>
-=======
-<title>Update Client List</title>
-
-<style>
-	.error{
-		color: red;
-	}
-</style>
-</head>
-<body>
-<form:form action="updateclient.do" method="post" commandName="myClient">
-			<!-- path=bean property -->
-	ClientId: <form:input path="id" /> 
-		<form:errors path="id" cssClass="error" /><br/>
-	Name: <form:input path="name" /> 
-		<form:errors path="name" cssClass="error" /><br/>
-	Email: <form:input path="email" /> 
-		<form:errors path="email" cssClass="error" /><br/>
-	Person of Contact: <form:input path="pocn" /> 
-		<form:errors path="pocn" cssClass="error" /><br/>
-	Phone Number: <form:input path="phone" /> 
-		<form:errors path="phone" cssClass="error" /><br/>
-	Fax Number: <form:input path="fax" /> 
-		<form:errors path="fax" cssClass="error" /><br/>
-	<!-- Address: <form:input path="address" />
-		<form:errors path="address" cssClass="error" /><br/>
-	ClientType: <form:input path="clientType" />
-		<form:errors path="clientType" cssClass="error" /><br/>
-		-->
-	<input type="submit" value="Register" />
-</form:form>
->>>>>>> master
 </body>
 </html>
