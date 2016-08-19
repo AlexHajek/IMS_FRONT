@@ -11,7 +11,7 @@
 	<div class="fulldiv">
    <div class="navbar">
 			<ul>
-				<li><a href="home.jsp">Home</a></li>
+				<li class="grad"><a href="home.jsp">Home</a></li>
 			  <li><a href="updateClientList.do">Update Client</a></li>
 			  <li><a href="updateProduct.do">Update Product</a></li>
 			  <li><a href="invoices.do">Generate Invoices</a></li>
@@ -25,6 +25,7 @@
 			<h2>Hello World 1!</h2>
 			<a href="updateClientList.do">Client Update</a><br/>
 			<a href="updateProduct.do">Product Update</a><br/>
+			<button class="grad">Test</button>
 		</div>
    </div>
 	</div>

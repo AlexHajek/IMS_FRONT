@@ -25,7 +25,7 @@
    </div>
    <div class="pagebody">
    	<div class="pagecenter">
-   		<h2>Create New Client</h2>
+   		<h1>Create New Client</h1>
 				<form:form action="updateclient.do" method="post" commandName="myClient">
 			<!-- path=bean property -->
 				ClientId:<br/> <form:input path="id" /> <br/>

@@ -25,7 +25,7 @@
    </div>
    <div class="pagebody">
    	<div class="pagecenter">
-   		<h2>Create New Product</h2>
+   		<h1>Create New Product</h1>
 			<form:form action="registerProduct.do" method="post" commandName="newProduct">
 						<!-- path=bean property -->
 				Product UPC:<br/> <form:input path="productUPC" /> <br/>
