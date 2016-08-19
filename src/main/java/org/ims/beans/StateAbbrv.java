@@ -39,6 +39,12 @@ public class StateAbbrv {
 	public void setStateAbbrv(String stateAbbrv) {
 		this.stateAbbrv = stateAbbrv;
 	}
+	public Set<Address> getStateAddressSet() {
+		return stateAddressSet;
+	}
+	public void setStateAddressSet(Set<Address> stateAddressSet) {
+		this.stateAddressSet = stateAddressSet;
+	}
 	public StateAbbrv() {
 		super();
 		// TODO Auto-generated constructor stub
