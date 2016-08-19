@@ -14,8 +14,8 @@ public class MiddleInterfaceF {
 		List<StateAbbrvBean> list = midI.getAllAbbr();
 		for(StateAbbrvBean s:list){
 			s.getStateName();
-			StateAbbrv abbrv = this.castAbbrv(s);
-			rList.add(abbrv);
+//			StateAbbrvBean abbrv = this.StateAbbrvBean(s);
+			rList.add(s);
 		}
 		return rList;
 	}

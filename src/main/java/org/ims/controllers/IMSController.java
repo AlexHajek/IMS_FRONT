@@ -1,10 +1,7 @@
 package org.ims.controllers;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
 import java.util.Vector;
->>>>>>> master
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -14,17 +11,10 @@ import javax.validation.Valid;
 import org.hibernate.Session;
 import org.ims.IMS_WEB.IMSDAO;
 import org.ims.IMS_WEB.SessionFactoryManager;
-<<<<<<< HEAD
-import org.ims.beans.Client;
-import org.ims.beans.Product;
-import org.ims.beans.StateAbbrvBean;
-=======
 import org.ims.beans.AddressBean;
 import org.ims.beans.ClientBean;
 import org.ims.beans.ClientTypeBean;
 import org.ims.beans.ProductBean;
-import org.ims.middle.MiddleInterfaceF;
->>>>>>> master
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,9 +32,8 @@ public class IMSController implements ServletContextAware,
 	private ServletContext servletContext; //instance var
 
 	@RequestMapping(value="updateProduct.do", method=RequestMethod.GET)
-<<<<<<< HEAD
 	public String updateProduct(HttpServletRequest req){
-		req.setAttribute("newProduct", new Product());
+		req.setAttribute("newProduct", new ProductBean());
 //		Session session = SessionFactoryManager.getInstance().openSession();
 //		session.close();
 //		IMSDAO dao =new IMSDAO(SessionFactoryManager.getInstance().openSession());
@@ -56,14 +45,6 @@ public class IMSController implements ServletContextAware,
 //		for(StateAbbrv s:midF.printStateAbb()){
 //			System.out.println(s.getStateName());
 //		}
-=======
-	public String updateProduct(HttpServletRequest req){
-		req.setAttribute("newProduct", new ProductBean());
-//		MiddleInterfaceF midF =new MiddleInterfaceF();
-//		for(StateAbbrv s:midF.printStateAbb()){
-//			System.out.println(s.getStateName());
-//		}
->>>>>>> master
 		return "updateProduct";
 	}
 	@RequestMapping(value="updateClientList.do", method=RequestMethod.GET)
