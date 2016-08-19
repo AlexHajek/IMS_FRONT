@@ -1,14 +1,18 @@
 package org.ims.controllers;
 
+import java.util.List;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.hibernate.Session;
+import org.ims.IMS_WEB.IMSDAO;
+import org.ims.IMS_WEB.SessionFactoryManager;
 import org.ims.beans.Client;
 import org.ims.beans.Product;
-import org.ims.beans.StateAbbrv;
-import org.ims.middle.MiddleInterfaceF;
+import org.ims.beans.StateAbbrvBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,10 +32,17 @@ public class IMSController implements ServletContextAware,
 	@RequestMapping(value="updateProduct.do", method=RequestMethod.GET)
 	public String updateProduct(HttpServletRequest req){
 		req.setAttribute("newProduct", new Product());
-		MiddleInterfaceF midF =new MiddleInterfaceF();
-		for(StateAbbrv s:midF.printStateAbb()){
-			System.out.println(s.getStateName());
-		}
+//		Session session = SessionFactoryManager.getInstance().openSession();
+//		session.close();
+//		IMSDAO dao =new IMSDAO(SessionFactoryManager.getInstance().openSession());
+//		List<StateAbbrvBean> list = dao.getAllStatesAbb();
+//		for(StateAbbrvBean s: list){
+//			System.out.println(s.getStateName());
+//		}
+//		MiddleInterfaceF midF =new MiddleInterfaceF();
+//		for(StateAbbrv s:midF.printStateAbb()){
+//			System.out.println(s.getStateName());
+//		}
 		return "updateProduct";
 	}
 	@RequestMapping(value="updateClientList.do", method=RequestMethod.GET)

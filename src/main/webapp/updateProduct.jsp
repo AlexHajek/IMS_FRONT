@@ -7,37 +7,53 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Update Client List</title>
-<style type="text/css">
-.error{
-	color: red;
-}
-</style>
+<title>Insert title here</title>
+<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<form:form action="registerProduct.do" method="post" commandName="newProduct">
-			<!-- path=bean property -->
-	Product UPC: <form:input path="productUPC" /> 
-		<form:errors path="productUPC" cssClass="error" /><br/>
-	Product Name: <form:input path="productName" /> 
-		<form:errors path="productName" cssClass="error" /><br/>
-	Product Description: <form:input path="productDescription" /> 
-		<form:errors path="productDescription" cssClass="error" /><br/>
-	Short Name: <form:input path="shortName" /> 
-		<form:errors path="shortName" cssClass="error" /><br/>
-	Unit Cost: <form:input path="unitCost" /> 
-		<form:errors path="unitCost" cssClass="error" /><br/>
-	Pack Size: <form:input path="packSize" /> 
-		<form:errors path="packSize" cssClass="error" /><br/>
-	Reorder Quantity: <form:input path="reorderQuantity" /> 
-		<form:errors path="reorderQuantity" cssClass="error" /><br/>
-	Retail Price: <form:input path="retailPrice" /> 
-		<form:errors path="retailPrice" cssClass="error" /><br/>
-	Product Weight: <form:input path="productWeight" /> 
-		<form:errors path="productWeight" cssClass="error" /><br/>
-	ProductImage: <form:input path="productImage" /> 
-		<form:errors path="productImage" cssClass="error" /><br/>
-	<input type="submit" value="Register" />
-</form:form>
+	<div class="fulldiv">
+   <div class="navbar">
+			<ul>
+				<li><a href="home.jsp">Home</a></li>
+			  <li><a href="updateClientList.do">Update Client</a></li>
+			  <li><a href="updateProduct.do">Update Product</a></li>
+			  <li><a href="invoices.do">Generate Invoices</a></li>
+			  <li><a href="reports.do">Generate Reports</a></li>
+			  <li><a href="faq.jsp">FAQ</a></li>
+			  <li><a href="about.jsp">About</a></li>
+			</ul>
+   </div>
+   <div class="pagebody">
+   	<div class="pagecenter">
+   		<h2>Create New Product</h2>
+			<form:form action="registerProduct.do" method="post" commandName="newProduct">
+						<!-- path=bean property -->
+				Product UPC:<br/> <form:input path="productUPC" /> <br/>
+					<form:errors path="productUPC" cssClass="error" /><br/>
+				Product Name:<br/> <form:input path="productName" /> <br/>
+					<form:errors path="productName" cssClass="error" /><br/>
+				Product Description:<br/> <form:input path="productDescription" /> <br/>
+					<form:errors path="productDescription" cssClass="error" /><br/>
+				Short Name:<br/> <form:input path="shortName" /> <br/>
+					<form:errors path="shortName" cssClass="error" /><br/>
+				Unit Cost:<br/> <form:input path="unitCost" /> <br/>
+					<form:errors path="unitCost" cssClass="error" /><br/>
+				Pack Size:<br/> <form:input path="packSize" /> <br/>
+					<form:errors path="packSize" cssClass="error" /><br/>
+				Reorder Quantity:<br/> <form:input path="reorderQuantity" /> <br/>
+					<form:errors path="reorderQuantity" cssClass="error" /><br/>
+				Retail Price:<br/> <form:input path="retailPrice" /> <br/>
+					<form:errors path="retailPrice" cssClass="error" /><br/>
+				Product Weight:<br/> <form:input path="productWeight" /> <br/>
+					<form:errors path="productWeight" cssClass="error" /><br/>
+				ProductImage:<br/> <form:input path="productImage" /> <br/>
+					<form:errors path="productImage" cssClass="error" /><br/>
+				<input type="submit" value="Register" />
+			</form:form>
+			<br/>
+		</div>
+   </div>
+	</div>
+	<div class="cleardiv"></div>
 </body>
 </html>
