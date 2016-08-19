@@ -8,9 +8,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Update Client List</title>
+<style type="text/css">
+.error{
+	color: red;
+}
+</style>
 </head>
 <body>
-<form:form action="register.do" method="post" commandName="pickle">
+<form:form action="registerProduct.do" method="post" commandName="newProduct">
 			<!-- path=bean property -->
 	Product UPC: <form:input path="productUPC" /> 
 		<form:errors path="productUPC" cssClass="error" /><br/>

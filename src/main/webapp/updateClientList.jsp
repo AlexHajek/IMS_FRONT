@@ -10,16 +10,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Update Client List</title>
 
+<style>
+	.error{
+		color: red;
+	}
+</style>
 </head>
 <body>
-<form:form action="register.do" method="post" commandName="pickle">
+<form:form action="updateclient.do" method="post" commandName="myClient">
 			<!-- path=bean property -->
+	ClientId: <form:input path="id" /> 
+		<form:errors path="id" cssClass="error" /><br/>
 	Name: <form:input path="name" /> 
 		<form:errors path="name" cssClass="error" /><br/>
-	Age: <form:input path="age" /> 
-		<form:errors path="age" cssClass="error" /><br/>
 	Email: <form:input path="email" /> 
 		<form:errors path="email" cssClass="error" /><br/>
+	Person of Contact: <form:input path="pocn" /> 
+		<form:errors path="pocn" cssClass="error" /><br/>
+	Phone Number: <form:input path="phone" /> 
+		<form:errors path="phone" cssClass="error" /><br/>
+	Fax Number: <form:input path="fax" /> 
+		<form:errors path="fax" cssClass="error" /><br/>
+	<!-- Address: <form:input path="address" />
+		<form:errors path="address" cssClass="error" /><br/>
+	ClientType: <form:input path="clientType" />
+		<form:errors path="clientType" cssClass="error" /><br/>
+		-->
 	<input type="submit" value="Register" />
 </form:form>
 </body>
