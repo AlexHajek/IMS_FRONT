@@ -1,11 +1,13 @@
 package org.ims.controllers;
 
+import java.util.List;
+import java.util.Vector;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-<<<<<<< HEAD
 import org.hibernate.Session;
 import org.ims.IMS_WEB.IMSDAO;
 import org.ims.IMS_WEB.SessionFactoryManager;
@@ -13,12 +15,7 @@ import org.ims.beans.AddressBean;
 import org.ims.beans.ClientBean;
 import org.ims.beans.ClientTypeBean;
 import org.ims.beans.ProductBean;
-=======
-import org.ims.beans.Client;
-import org.ims.beans.Product;
-import org.ims.beans.StateAbbrv;
 import org.ims.middle.MiddleInterfaceF;
->>>>>>> origin/master
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,15 +34,11 @@ public class IMSController implements ServletContextAware,
 
 	@RequestMapping(value="updateProduct.do", method=RequestMethod.GET)
 	public String updateProduct(HttpServletRequest req){
-<<<<<<< HEAD
 		req.setAttribute("newProduct", new ProductBean());
-=======
-		req.setAttribute("newProduct", new Product());
-		MiddleInterfaceF midF =new MiddleInterfaceF();
-		for(StateAbbrv s:midF.printStateAbb()){
-			System.out.println(s.getStateName());
-		}
->>>>>>> origin/master
+//		MiddleInterfaceF midF =new MiddleInterfaceF();
+//		for(StateAbbrv s:midF.printStateAbb()){
+//			System.out.println(s.getStateName());
+//		}
 		return "updateProduct";
 	}
 	@RequestMapping(value="updateClientList.do", method=RequestMethod.GET)
@@ -54,7 +47,7 @@ public class IMSController implements ServletContextAware,
 		return "updateClientList";
 	}
 	@RequestMapping(value="registerProduct.do", method=RequestMethod.POST)
-	public ModelAndView registerProduct(@ModelAttribute("newProduct") @Valid Product newProduct,
+	public ModelAndView registerProduct(@ModelAttribute("newProduct") @Valid ProductBean newProduct,
 			BindingResult bindingResult,
 			HttpServletRequest req,
 			HttpServletResponse resp){
