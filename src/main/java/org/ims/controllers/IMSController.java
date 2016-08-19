@@ -1,6 +1,10 @@
 package org.ims.controllers;
 
 import java.util.List;
+<<<<<<< HEAD
+=======
+import java.util.Vector;
+>>>>>>> master
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -10,9 +14,17 @@ import javax.validation.Valid;
 import org.hibernate.Session;
 import org.ims.IMS_WEB.IMSDAO;
 import org.ims.IMS_WEB.SessionFactoryManager;
+<<<<<<< HEAD
 import org.ims.beans.Client;
 import org.ims.beans.Product;
 import org.ims.beans.StateAbbrvBean;
+=======
+import org.ims.beans.AddressBean;
+import org.ims.beans.ClientBean;
+import org.ims.beans.ClientTypeBean;
+import org.ims.beans.ProductBean;
+import org.ims.middle.MiddleInterfaceF;
+>>>>>>> master
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +42,7 @@ public class IMSController implements ServletContextAware,
 	private ServletContext servletContext; //instance var
 
 	@RequestMapping(value="updateProduct.do", method=RequestMethod.GET)
+<<<<<<< HEAD
 	public String updateProduct(HttpServletRequest req){
 		req.setAttribute("newProduct", new Product());
 //		Session session = SessionFactoryManager.getInstance().openSession();
@@ -43,15 +56,23 @@ public class IMSController implements ServletContextAware,
 //		for(StateAbbrv s:midF.printStateAbb()){
 //			System.out.println(s.getStateName());
 //		}
+=======
+	public String updateProduct(HttpServletRequest req){
+		req.setAttribute("newProduct", new ProductBean());
+//		MiddleInterfaceF midF =new MiddleInterfaceF();
+//		for(StateAbbrv s:midF.printStateAbb()){
+//			System.out.println(s.getStateName());
+//		}
+>>>>>>> master
 		return "updateProduct";
 	}
 	@RequestMapping(value="updateClientList.do", method=RequestMethod.GET)
 	public String updateClientList(HttpServletRequest req){
-		req.setAttribute("myclient", new Client());
+		req.setAttribute("myClient", new ClientBean());
 		return "updateClientList";
 	}
 	@RequestMapping(value="registerProduct.do", method=RequestMethod.POST)
-	public ModelAndView registerProduct(@ModelAttribute("newProduct") @Valid Product newProduct,
+	public ModelAndView registerProduct(@ModelAttribute("newProduct") @Valid ProductBean newProduct,
 			BindingResult bindingResult,
 			HttpServletRequest req,
 			HttpServletResponse resp){
@@ -65,12 +86,63 @@ public class IMSController implements ServletContextAware,
 		return mv;
 	}
 	@RequestMapping(value="updateclient.do", method=RequestMethod.POST)
-	public String updateClient(HttpServletRequest req){
-		return "index";
+	public ModelAndView registerClient(
+			@ModelAttribute("myClient") @Valid ClientBean myClient, 
+			BindingResult bindingResult,
+			HttpServletRequest req, 
+			HttpServletResponse resp 
+			){
+		if(bindingResult.hasErrors()){
+			System.out.println("bindingResult failed!");
+			return new ModelAndView("updateClientList");
+		}
+		@SuppressWarnings("unchecked")
+		Vector<ClientBean> clientList = (Vector<ClientBean>)this.servletContext.getAttribute("clientList");
+		/*
+		StateAbbrv clientStateAbbrv = new StateAbbrv(Integer.parseInt(req.getParameter("stateAbbrvId")),
+													req.getParameter("stateName"),
+													req.getParameter("stateAbbrv"),
+													null);
+		Address clientAddress = new Address(Integer.parseInt(req.getParameter("addressId")),
+											req.getParameter("streetAddress1"),
+											req.getParameter("streetAddress2"),
+											req.getParameter("addressCity"),
+											req.getParameter("addressZip"),
+											clientStateAbbrv);
+		ClientType newClientType = new ClientType(Integer.parseInt(req.getParameter("clientTypeId")),
+													req.getParameter("clientType"),
+													null);
+													*/
+		System.out.println(req.getParameter("id"));
+		System.out.println(req.getParameter("name"));
+		ClientBean newClient = new ClientBean(Integer.parseInt(req.getParameter("id")),
+										req.getParameter("name"),
+										req.getParameter("email"),
+										req.getParameter("pocn"),
+										req.getParameter("phone"),
+										req.getParameter("fax"),
+										new AddressBean()/*clientAddress,*/,
+										new ClientTypeBean()/*newClientType*/);
+										
+		clientList.add(newClient);
+		//testing
+		Session session = SessionFactoryManager.getInstance().openSession();
+		IMSDAO myDAO = new IMSDAO(session);
+		myDAO.create(newClient);
+		session.close();
+		
+		req.getSession().setAttribute("clientList", clientList);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("viewClients"); 	//viewClients.jsp
+		mv.addObject("success", "Successfully added client!");	
+		return mv;
 	}
 	
 	@Override
-	public void afterPropertiesSet() throws Exception {}
+	public void afterPropertiesSet() throws Exception {
+		List<ClientBean> clients = new Vector<>();
+		servletContext.setAttribute("clientList", clients);
+	}
 	@Override
 	public void setServletContext(ServletContext ctxt) {
 		this.servletContext = ctxt;
